@@ -8,5 +8,16 @@
 </head>
 <body>
 <h1>hello SpringMVC</h1>
+
+	<a href="test2">Test RequestMapping</a>
+	<br>
+	<br>
+	<a href="testParamsAndHeaders?username=rly&age=12">Test ParamsAndHeaders</a>
+	<br><br>
+	<a href="testAntPath/XXXXXmnxyz/abc">Test AntPath</a>
+	<br><br>
+	<a href="testPathVariable/1">Test PathVariable</a>
+	<br><br>
+	
 </body>
 </html>
