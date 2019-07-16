@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<!-- 配置 bean -->
+	<bean id="arithmeticCalculator" class="com.renly.AOP.xml.ArithmeticCalculatorImpl"></bean>
+
+	<!-- 配置切面的 bean-->
+	<bean id="loggingAspect" class="com.renly.AOP.xml.LoggingAspect"></bean>
+	
+	<!-- 配置 AOP -->
+	<aop:config>
+		<aop:pointcut expression="execution(public int com.renly.AOP.xml.ArithmeticCalculator.*(int, int))" id="pointcut"/>
+			<!-- 配置切面及通知 -->
+			<aop:aspect ref="loggingAspect">
+				<aop:before method="beforeMethod" pointcut-ref="pointcut"/>
+				<aop:after method="afterMethod" pointcut-ref="pointcut"/>
+				<aop:after-throwing method="afterThrowing" pointcut-ref="pointcut" throwing="e"/>
+				<aop:after-returning method="afterReturning" pointcut-ref="pointcut" returning="result"/>
+			</aop:aspect>
+	</aop:config>
+	
+   
+</beans>
