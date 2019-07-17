@@ -8,5 +8,15 @@
 </head>
 <body>
 <h1>我是成功</h1>
+	time: ${requestScope.time }
+	<br><br>
+	names: ${requestScope.names }
+	<br><br>
+	session user: ${sessionScope.user }
+	<br><br>
+	username:
+	<br>
+	password:
+	
 </body>
 </html>
