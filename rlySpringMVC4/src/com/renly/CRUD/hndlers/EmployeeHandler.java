@@ -24,13 +24,13 @@ import com.renly.CRUD.dao.EmployeeDao;
      @Autowired
      private DepartmentDao departmentDao;
 
-     @ModelAttribute
-     public void getEmployee(@RequestParam(value="id",required=false) Integer id,
-             Map<String, Object> map){
-         if(id != null){
-             map.put("employee", employeeDao.get(id));
-         }
-     }
+//     @ModelAttribute
+//     public void getEmployee(@RequestParam(value="id",required=false) Integer id,
+//             Map<String, Object> map){
+//         if(id != null){
+//             map.put("employee", employeeDao.get(id));
+//         }
+//     }
      
      @RequestMapping("/emps")
      public String list(Map<String, Object> map){
