@@ -7,6 +7,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".delete").click(function(){
+			var href = $(this).attr("href");
+			$("form").attr("action", href).submit();			
+			return false;
+		});
+	})
+</script>
+
+
 <!--  
 	SpringMVC 处理静态资源:
 	1. 为什么会有这样的问题:
@@ -18,10 +30,10 @@
 -->
 </head>
 <body>
-		<form action="" method="POST">
+	<form action="" method="POST">
 		<input type="hidden" name="_method" value="DELETE"/>
 	</form>
-	
+	<a href="emp">Add New Employee</a>
 	<c:if test="${empty requestScope.employees }">
 		没有任何员工信息.
 	</c:if>
