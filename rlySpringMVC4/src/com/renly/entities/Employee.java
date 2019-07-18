@@ -2,97 +2,111 @@
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 /**
  * @author rly10
  * @date 2019/07/17
  */
- public class Employee {
+public class Employee {
 
-     private Integer id;
-     private String lastName;
-     private String email;
-     //1 male, 0 female
-     private Integer gender;
-     
-     private Department department;
-     
-     private Date birth;
-     
-     private Float salary;
+    private Integer id;
+    @NotEmpty
+    private String lastName;
 
-     public Integer getId() {
-         return id;
-     }
+    @Email
+    private String email;
+    //1 male, 0 female
+    private Integer gender;
+    
+    private Department department;
+    
+    @Past
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date birth;
+    
+    @NumberFormat(pattern="#,###,###.#")
+    private Float salary;
 
-     public void setId(Integer id) {
-         this.id = id;
-     }
+    public Integer getId() {
+        return id;
+    }
 
-     public String getLastName() {
-         return lastName;
-     }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-     public void setLastName(String lastName) {
-         this.lastName = lastName;
-     }
+    public String getLastName() {
+        return lastName;
+    }
 
-     public String getEmail() {
-         return email;
-     }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-     public void setEmail(String email) {
-         this.email = email;
-     }
+    public String getEmail() {
+        return email;
+    }
 
-     public Integer getGender() {
-         return gender;
-     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-     public void setGender(Integer gender) {
-         this.gender = gender;
-     }
+    public Integer getGender() {
+        return gender;
+    }
 
-     public Department getDepartment() {
-         return department;
-     }
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
 
-     public void setDepartment(Department department) {
-         this.department = department;
-     }
+    public Department getDepartment() {
+        return department;
+    }
 
-     public Date getBirth() {
-         return birth;
-     }
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
-     public void setBirth(Date birth) {
-         this.birth = birth;
-     }
+    public Date getBirth() {
+        return birth;
+    }
 
-     public Float getSalary() {
-         return salary;
-     }
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
 
-     public void setSalary(Float salary) {
-         this.salary = salary;
-     }
+    public Float getSalary() {
+        return salary;
+    }
 
-     @Override
-     public String toString() {
-         return "Employee [id=" + id + ", lastName=" + lastName + ", email="
-                 + email + ", gender=" + gender + ", department=" + department
-                 + ", birth=" + birth + ", salary=" + salary + "]";
-     }
+    public void setSalary(Float salary) {
+        this.salary = salary;
+    }
 
-     public Employee(Integer id, String lastName, String email, Integer gender,
-             Department department) {
-         super();
-         this.id = id;
-         this.lastName = lastName;
-         this.email = email;
-         this.gender = gender;
-         this.department = department;
-     }
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", lastName=" + lastName + ", email="
+                + email + ", gender=" + gender + ", department=" + department
+                + ", birth=" + birth + ", salary=" + salary + "]";
+    }
 
-     public Employee() {
-     }
+    public Employee(Integer id, String lastName, String email, Integer gender,
+            Department department) {
+        super();
+        this.id = id;
+        this.lastName = lastName;
+        this.email = email;
+        this.gender = gender;
+        this.department = department;
+    }
+
+    public Employee() {
+        // TODO Auto-generated constructor stub
+    }
 }
